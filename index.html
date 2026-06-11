@@ -95,7 +95,8 @@ body{padding-bottom:72px;}
 #topnav .wrap{display:flex;align-items:center;gap:32px;height:54px;}
 #topnav .brand{font-family:'Anton',sans-serif;font-size:23px;font-weight:400;
   text-transform:uppercase;letter-spacing:.5px;color:var(--ink);text-decoration:none;white-space:nowrap;
-  transform:skewX(-6deg);display:inline-block;}
+  transform:skewX(-6deg);display:inline-flex;align-items:center;}
+#topnav .brand img{height:26px;width:26px;transform:skewX(6deg);display:block;margin-right:10px;}
 #topnav .brand span{color:var(--red);}
 #topnav nav{display:flex;gap:24px;margin-left:auto;overflow-x:auto;}
 #topnav nav a{font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
@@ -120,13 +121,24 @@ body{padding-bottom:72px;}
 #aboutPanel.open{transform:translateX(0);}
 #aboutPanel .about-logo{font-family:'Anton',sans-serif;font-size:32px;font-weight:400;
   text-transform:uppercase;letter-spacing:.5px;color:var(--ink);transform:skewX(-6deg);
-  display:inline-block;margin-bottom:24px;}
+  display:inline-flex;align-items:center;margin-bottom:24px;}
+#aboutPanel .about-logo img{height:34px;width:34px;transform:skewX(6deg);display:block;margin-right:12px;}
 #aboutPanel .about-logo span{color:var(--red);}
 #aboutPanel p{margin-bottom:16px;font-size:14px;line-height:1.65;}
 #aboutPanel a{color:var(--blue);word-break:break-word;}
 #aboutClose{position:absolute;top:12px;right:16px;background:none;border:none;font-size:28px;
   line-height:1;cursor:pointer;color:var(--grey);font-family:inherit;}
 #aboutClose:hover{color:var(--ink);}
+/* resources */
+.resources-intro{color:var(--grey);font-size:14px;max-width:720px;margin-bottom:20px;}
+.resources-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.resource-box{border:1px solid var(--hair);background:#fff;padding:24px;}
+.resource-box h3{font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.resource-box ul{list-style:none;margin:0;padding:0;}
+.resource-box li{font-size:13px;line-height:1.6;margin-bottom:10px;}
+.resource-box li:last-child{margin-bottom:0;}
+.resource-box a{color:var(--blue);font-weight:600;}
+.resource-box a:hover{color:var(--red);}
 section,#filters{scroll-margin-top:64px;}
 html{scroll-behavior:smooth;}
 @media (max-width:560px){
@@ -136,6 +148,7 @@ html{scroll-behavior:smooth;}
 @media (max-width:900px){
   .filters-grid{grid-template-columns:repeat(2,1fr);}
   .two-col{grid-template-columns:1fr;}
+  .resources-grid{grid-template-columns:1fr;}
   .kpi-num{font-size:48px;}
   header.site h1{font-size:30px;}
 }
@@ -150,7 +163,7 @@ html{scroll-behavior:smooth;}
 
 <div id="topnav">
   <div class="wrap">
-    <a class="brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Strade<span>Mortali</span></a>
+    <a class="brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><img src="logo.svg" alt="">Strade<span>Mortali</span></a>
     <nav id="topnavLinks">
       <a href="#filters">Filtri</a>
       <a href="#secMap">Mappa</a>
@@ -168,7 +181,7 @@ html{scroll-behavior:smooth;}
 <div id="aboutOverlay"></div>
 <aside id="aboutPanel" aria-hidden="true">
   <button id="aboutClose" aria-label="Chiudi">&times;</button>
-  <div class="about-logo">Strade<span>Mortali</span></div>
+  <div class="about-logo"><img src="logo.svg" alt="">Strade<span>Mortali</span></div>
   <p>StradeMortali è un progetto di tecnologia civica e dati aperti di <strong>Jacopo Ottaviani</strong>, data journalist italiano.</p>
   <p>I dati sono del Comune di Roma (fino all'ultimo aggiornamento disponibile).</p>
   <p>Il progetto è un prototipo volto a stimolare un dibattito sul rilascio e l'uso dei dati per sensibilizzare il pubblico alla tematica degli incidenti stradali.</p>
@@ -274,6 +287,29 @@ html{scroll-behavior:smooth;}
       <thead><tr></tr></thead>
       <tbody></tbody>
     </table>
+  </div>
+</div></section>
+
+<section id="secRisorse"><div class="wrap">
+  <h2>Supporto e risorse</h2>
+  <p class="resources-intro">Dietro ogni riga di questi dati ci sono persone. Se tu o una persona a te vicina siete stati coinvolti in un incidente stradale, esistono servizi gratuiti di supporto. Qui trovi anche risorse per approfondire.</p>
+  <div class="resources-grid">
+    <div class="resource-box">
+      <h3>Vittime e familiari</h3>
+      <ul>
+        <li><a href="https://aniacares.it" target="_blank" rel="noopener">ANIA Cares</a> — Supporto psicologico gratuito per vittime e familiari. Numero verde 800 893 510, attivo 24 ore su 24.</li>
+        <li><a href="https://www.vittimestrada.org" target="_blank" rel="noopener">AIFVS</a> — Associazione Italiana Familiari e Vittime della Strada, presente con oltre 120 sedi locali.</li>
+        <li><a href="https://fondazionemichelescarponi.com" target="_blank" rel="noopener">Fondazione Michele Scarponi</a> — Tutela degli utenti fragili della strada e sostegno ai familiari delle vittime.</li>
+      </ul>
+    </div>
+    <div class="resource-box">
+      <h3>Dati e prevenzione</h3>
+      <ul>
+        <li><a href="https://www.istat.it/it/archivio/incidenti" target="_blank" rel="noopener">ISTAT</a> — Statistiche ufficiali sull'incidentalità stradale in Italia.</li>
+        <li><a href="https://aci.gov.it/attivita-e-progetti/studi-e-ricerche/incidentalita/" target="_blank" rel="noopener">ACI</a> — Studi e rapporti ACI-ISTAT sull'incidentalità.</li>
+        <li><a href="https://www.fondazioneania.it" target="_blank" rel="noopener">Fondazione ANIA</a> — Educazione e prevenzione per la sicurezza stradale.</li>
+      </ul>
+    </div>
   </div>
 </div></section>
 
