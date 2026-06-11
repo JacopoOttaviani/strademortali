@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Incidenti stradali a Roma — Marzo 2021 · Marzo 2022</title>
+<title>Road accidents in Rome — March 2021 · March 2022</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F7F5F0'/%3E%3Crect x='27' y='-14' width='10' height='92' transform='rotate(45 32 32)' fill='%231A1A1A'/%3E%3Crect x='27' y='-14' width='10' height='92' transform='rotate(-45 32 32)' fill='%231A1A1A'/%3E%3Crect x='24' y='24' width='16' height='16' fill='%23C0392B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -152,122 +152,122 @@ html{scroll-behavior:smooth;}
   <div class="wrap">
     <a class="brand" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Strade<span>Mortali</span></a>
     <nav id="topnavLinks">
-      <a href="#filters">Filtri</a>
-      <a href="#secMap">Mappa</a>
-      <a href="#secHeat">Giorno &amp; Ora</a>
-      <a href="#secIncroci">Incroci killer</a>
-      <a href="#secCharts">Grafici</a>
-      <a href="#secTable">Dati</a>
-      <a href="#sulprogetto" id="aboutLink">Sul Progetto</a>
+      <a href="#filters">Filters</a>
+      <a href="#secMap">Map</a>
+      <a href="#secHeat">Day &amp; Hour</a>
+      <a href="#secIncroci">Killer intersections</a>
+      <a href="#secCharts">Charts</a>
+      <a href="#secTable">Data</a>
+      <a href="#sulprogetto" id="aboutLink">About</a>
     </nav>
-    <div class="lang-switch"><a href="./" class="active">IT</a><a href="en/">EN</a></div>
+    <div class="lang-switch"><a href="../">IT</a><a href="./" class="active">EN</a></div>
   </div>
-  <div id="navChip">Incidenti: <span id="navChipNum">0</span></div>
+  <div id="navChip">Accidents: <span id="navChipNum">0</span></div>
 </div>
 
 <div id="aboutOverlay"></div>
 <aside id="aboutPanel" aria-hidden="true">
-  <button id="aboutClose" aria-label="Chiudi">&times;</button>
+  <button id="aboutClose" aria-label="Close">&times;</button>
   <div class="about-logo">Strade<span>Mortali</span></div>
-  <p>StradeMortali è un progetto di tecnologia civica e dati aperti di <strong>Jacopo Ottaviani</strong>, data journalist italiano.</p>
-  <p>I dati sono del Comune di Roma (fino all'ultimo aggiornamento disponibile).</p>
-  <p>Il progetto è un prototipo volto a stimolare un dibattito sul rilascio e l'uso dei dati per sensibilizzare il pubblico alla tematica degli incidenti stradali.</p>
-  <p>Ma anche, e soprattutto, come strumento decisionale per intervenire sulle strade e gli incroci più pericolosi e facilitare interventi sulla viabilità che migliorino la sicurezza dei cittadini.</p>
-  <p>Se vuoi contattare l'autore o segnalare un'anomalia nei dati, il modo migliore è LinkedIn: <a href="https://www.linkedin.com/in/jacopo-ottaviani/" target="_blank" rel="noopener">linkedin.com/in/jacopo-ottaviani</a></p>
-  <p>Se ti piace il progetto puoi considerare di <a href="https://ko-fi.com/jacopoottaviani" target="_blank" rel="noopener">offrirmi un caffè ☕️</a></p>
-  <p>Un ringraziamento speciale a <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>, la libreria open source di mappe utilizzata per questo progetto.</p>
+  <p>StradeMortali is a civic technology and open data project by <strong>Jacopo Ottaviani</strong>, an Italian data journalist.</p>
+  <p>The data comes from the City of Rome (up to the latest available update).</p>
+  <p>The project is a prototype meant to spark a debate on the release and use of open data, and to raise public awareness of road safety.</p>
+  <p>Above all, it is meant as a decision-making tool to act on the most dangerous roads and intersections, supporting traffic interventions that improve citizens' safety.</p>
+  <p>To contact the author or report a data anomaly, the best way is LinkedIn: <a href="https://www.linkedin.com/in/jacopo-ottaviani/" target="_blank" rel="noopener">linkedin.com/in/jacopo-ottaviani</a></p>
+  <p>If you like the project, consider <a href="https://ko-fi.com/jacopoottaviani" target="_blank" rel="noopener">buying me a coffee ☕️</a></p>
+  <p>Special thanks to <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>, the open source mapping library used in this project.</p>
 </aside>
 
 <header class="site">
   <div class="wrap">
-    <h1>Incidenti stradali a Roma</h1>
-    <p id="subtitle">Caricamento dati…</p>
+    <h1>Road accidents in Rome</h1>
+    <p id="subtitle">Loading data…</p>
   </div>
 </header>
 
 <div class="wrap">
   <div class="kpis">
-    <div class="kpi"><div class="kpi-num blue" id="kpiIncidenti">0</div><div class="kpi-label">Incidenti totali</div></div>
-    <div class="kpi"><div class="kpi-num" id="kpiFeriti">0</div><div class="kpi-label">Feriti</div></div>
-    <div class="kpi"><div class="kpi-num red" id="kpiMorti">0</div><div class="kpi-label">Vittime</div></div>
+    <div class="kpi"><div class="kpi-num blue" id="kpiIncidenti">0</div><div class="kpi-label">Total accidents</div></div>
+    <div class="kpi"><div class="kpi-num" id="kpiFeriti">0</div><div class="kpi-label">Injured</div></div>
+    <div class="kpi"><div class="kpi-num red" id="kpiMorti">0</div><div class="kpi-label">Deaths</div></div>
   </div>
 </div>
 
 <div class="wrap" id="filters">
   <div class="filters-grid">
-    <div class="filter"><label for="fNatura">Filtra per natura</label>
-      <select id="fNatura"><option value="">Tutte</option></select></div>
-    <div class="filter"><label for="fMeteo">Condizione atmosferica</label>
-      <select id="fMeteo"><option value="">Tutte</option></select></div>
-    <div class="filter"><label for="fVeicolo">Tipo veicolo</label>
-      <select id="fVeicolo"><option value="">Tutti</option></select></div>
-    <div class="filter"><label>Fascia oraria</label>
+    <div class="filter"><label for="fNatura">Accident type</label>
+      <select id="fNatura"><option value="">All</option></select></div>
+    <div class="filter"><label for="fMeteo">Weather conditions</label>
+      <select id="fMeteo"><option value="">All</option></select></div>
+    <div class="filter"><label for="fVeicolo">Vehicle type</label>
+      <select id="fVeicolo"><option value="">All</option></select></div>
+    <div class="filter"><label>Time of day</label>
       <div class="hour-range">
         <input type="range" id="hMin" min="0" max="23" value="0">
         <span id="hLabel">0 – 23</span>
         <input type="range" id="hMax" min="0" max="23" value="23">
       </div></div>
   </div>
-  <button id="resetFilters">Azzera filtri</button><span id="filterCount"></span>
+  <button id="resetFilters">Reset filters</button><span id="filterCount"></span>
 </div>
 
 <section id="secMap"><div class="wrap">
-  <h2>Mappa degli incidenti</h2>
+  <h2>Accident map</h2>
   <div id="map"></div>
   <div class="legend">
-    <span data-sev="0" title="Clicca per filtrare"><i style="background:#9E9E9E"></i>Solo illesi</span>
-    <span data-sev="1" title="Clicca per filtrare"><i style="background:#E67E22"></i>Feriti</span>
-    <span data-sev="2" title="Clicca per filtrare"><i style="background:#C0392B"></i>Vittime</span>
+    <span data-sev="0" title="Click to filter"><i style="background:#9E9E9E"></i>No injuries</span>
+    <span data-sev="1" title="Click to filter"><i style="background:#E67E22"></i>Injuries</span>
+    <span data-sev="2" title="Click to filter"><i style="background:#C0392B"></i>Deaths</span>
     <span id="noCoordNote"></span>
   </div>
 </div></section>
 
 <section id="secHeat"><div class="wrap">
-  <h2>Distribuzione per giorno e ora</h2>
+  <h2>Distribution by day and hour</h2>
   <div id="heatmap"></div>
 </div></section>
 
 <section id="secIncroci"><div class="wrap">
-  <h2>Incroci killer rilevati</h2>
+  <h2>Killer intersections</h2>
   <div id="mapIncroci"></div>
   <div class="legend">
-    <span><i style="background:#C0392B"></i>Incroci con vittime</span>
-    <span><i style="background:#E67E22"></i>Incroci con soli feriti (top per gravit&agrave;)</span>
+    <span><i style="background:#C0392B"></i>Intersections with deaths</span>
+    <span><i style="background:#E67E22"></i>Intersections with injuries only (top by severity)</span>
   </div>
-  <p class="incroci-note">I 60 incroci pi&ugrave; pericolosi, ordinati per indice di gravit&agrave; (vittime&times;100 + feriti&times;5 + incidenti).
-  Il raggio del cerchio &egrave; proporzionale alla gravit&agrave;. Solo incidenti registrati &laquo;all'intersezione&raquo; con entrambe le strade indicate. Marzo 2021 &ndash; Marzo 2022.</p>
+  <p class="incroci-note">The 60 most dangerous intersections, ranked by severity index (deaths&times;100 + injuries&times;5 + accidents).
+  Circle radius is proportional to severity. Only accidents recorded &laquo;at the intersection&raquo; with both roads specified. March 2021 &ndash; March 2022.</p>
 </div></section>
 
 <section id="secCharts"><div class="wrap two-col">
   <div class="chart-box" style="grid-column:1/-1">
-    <h3>Top 15 strade per incidenti</h3>
+    <h3>Top 15 roads by accidents</h3>
     <div class="canvas-holder" style="height:420px"><canvas id="chartStrade"></canvas></div>
   </div>
   <div class="chart-box donut-box">
-    <h3>Natura incidente</h3>
+    <h3>Accident type</h3>
     <div class="donut-wrap">
       <div class="donut-canvas-holder"><canvas id="chartNatura"></canvas></div>
       <div class="donut-legend" id="legendNatura"></div>
     </div>
   </div>
   <div class="chart-box donut-box">
-    <h3>Condizione atmosferica</h3>
+    <h3>Weather conditions</h3>
     <div class="donut-wrap">
       <div class="donut-canvas-holder"><canvas id="chartMeteo"></canvas></div>
       <div class="donut-legend" id="legendMeteo"></div>
     </div>
   </div>
   <div class="chart-box" style="grid-column:1/-1">
-    <h3>Incidenti nel tempo (per mese)</h3>
+    <h3>Accidents over time (by month)</h3>
     <div class="canvas-holder"><canvas id="chartMesi"></canvas></div>
   </div>
 </div></section>
 
 <section id="secTable"><div class="wrap">
-  <h2>Dati filtrati</h2>
+  <h2>Filtered data</h2>
   <div class="table-actions">
     <span id="tableCount" style="color:var(--grey);font-size:13px"></span>
-    <button class="btn secondary" id="downloadCsv">Scarica dati filtrati (CSV)</button>
+    <button class="btn secondary" id="downloadCsv">Download filtered data (CSV)</button>
   </div>
   <div id="tableWrap">
     <table id="dataTable">
@@ -277,22 +277,75 @@ html{scroll-behavior:smooth;}
   </div>
 </div></section>
 
-<footer><div class="wrap"><span>Fonte: Comune di Roma. Made with 💙 by <a href="https://www.linkedin.com/in/jacopo-ottaviani/" target="_blank" rel="noopener" style="color:inherit;">Jacopo Ottaviani</a>.</span><a class="kofi-btn" href="https://ko-fi.com/jacopoottaviani" target="_blank" rel="noopener">Offrimi un caffè ☕️</a></div></footer>
+<footer><div class="wrap"><span>Source: City of Rome. Made with 💙 by <a href="https://www.linkedin.com/in/jacopo-ottaviani/" target="_blank" rel="noopener" style="color:inherit;">Jacopo Ottaviani</a>.</span><a class="kofi-btn" href="https://ko-fi.com/jacopoottaviani" target="_blank" rel="noopener">Buy me a coffee ☕️</a></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
-<script src="data.js"></script>
+<script src="../data.js"></script>
 <script>
 "use strict";
-const GIORNI = ['Lun','Mar','Mer','Gio','Ven','Sab','Dom'];
+const GIORNI = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 const COLORS = {red:'#C0392B', blue:'#3D5A80', grey:'#9E9E9E', orange:'#E67E22', ink:'#1A1A1A', hair:'#E0E0E0'};
 const PALETTE = ['#3D5A80','#C0392B','#9E9E9E','#E67E22','#6B8CAE','#8E5572','#4A7856','#B5A642','#5C5470','#A47551','#2F4550','#C98986'];
 
 // Colonne: [protocollo, dataOra ISO, strada, strada2, natura, meteo, luce, fondo,
 //           traffico, feriti, morti, illesi, lat, lon, veicoli[], meseIdx]
-const MESI = ["Marzo 2021", "Aprile 2021", "Maggio 2021", "Giugno 2021", "Luglio 2021", "Agosto 2021", "Settembre 2021", "Ottobre 2021", "Novembre 2021", "Dicembre 2021", "Gennaio 2022", "Febbraio 2022", "Marzo 2022"];
+const MESI = ["March 2021", "April 2021", "May 2021", "June 2021", "July 2021", "August 2021", "September 2021", "October 2021", "November 2021", "December 2021", "January 2022", "February 2022", "March 2022"];
+
+const CAT_T = {
+  // accident type
+  "Fuoriuscita dalla sede stradale":"Run-off-road",
+  "Infortunio per caduta del veicolo":"Injury from fall off vehicle",
+  "Infortunio per sola frenata improvvisa":"Injury from sudden braking",
+  "Investimento di pedone":"Pedestrian hit",
+  "Ribaltamento senza urto contro ostacolo fisso":"Rollover without hitting fixed obstacle",
+  "Scontro frontale fra veicoli in marcia":"Head-on collision (moving vehicles)",
+  "Scontro frontale/laterale DX fra veicoli in marcia":"Front/right-side collision (moving vehicles)",
+  "Scontro frontale/laterale SX fra veicoli in marcia":"Front/left-side collision (moving vehicles)",
+  "Scontro laterale fra veicoli in marcia":"Side collision (moving vehicles)",
+  "Tamponamento":"Rear-end collision",
+  "Tamponamento Multiplo":"Multiple rear-end collision",
+  "Veicolo in marcia che urta buche nella carreggiata":"Moving vehicle hitting potholes",
+  "Veicolo in marcia contro animale":"Moving vehicle vs animal",
+  "Veicolo in marcia contro ostacolo accidentale":"Moving vehicle vs accidental obstacle",
+  "Veicolo in marcia contro ostacolo fisso":"Moving vehicle vs fixed obstacle",
+  "Veicolo in marcia contro treno":"Moving vehicle vs train",
+  "Veicolo in marcia contro veicoli fermi":"Moving vehicle vs stationary vehicles",
+  "Veicolo in marcia contro veicoli in arresto":"Moving vehicle vs stopped vehicles",
+  "Veicolo in marcia contro veicoli in sosta":"Moving vehicle vs parked vehicles",
+  "Veicolo in marcia contro veicolo arresto":"Moving vehicle vs stopped vehicle",
+  "Veicolo in marcia contro veicolo fermo":"Moving vehicle vs stationary vehicle",
+  "Veicolo in marcia contro veicolo in sosta":"Moving vehicle vs parked vehicle",
+  // weather
+  "Foschia":"Mist","Grandine in atto":"Hail","Nebbia":"Fog","Nevicata in atto":"Snow",
+  "Non specificato":"Not specified","Nuvoloso":"Cloudy","Pioggia in atto":"Rain",
+  "Sereno":"Clear","Sole radente":"Low sun glare","Vento forte":"Strong wind",
+  // vehicles
+  "Altro":"Other","Autoambulanza":"Ambulance","Autoambulanza in servizio":"Ambulance on duty",
+  "Autoarticolato":"Articulated lorry","Autobus di linea":"Public bus","Autobus in extraurbana":"Intercity bus",
+  "Autobus turistico":"Tour bus","Autobus urbano":"City bus","Autocaravan":"Motorhome",
+  "Autocarro inferiore 35 q.":"Truck under 3.5 t","Autocarro superiore 35 q.":"Truck over 3.5 t",
+  "Autogru":"Mobile crane","Autopompa":"Fire engine","Autosnodato":"Articulated bus","Autotreno":"Road train",
+  "Autoveicolo trasp.promisc.":"Mixed-use vehicle","Autovettura con rimorchio":"Car with trailer",
+  "Autovettura di polizia":"Police car","Autovettura di soccorso":"Emergency car",
+  "Autovettura privata":"Private car","Autovettura pubblica":"Public-hire car",
+  "Bicicletta elettrica":"E-bike","Ciclomotore":"Moped","Ciclomotore con passeggero":"Moped with passenger",
+  "Filobus":"Trolleybus","Macchina operatrice":"Work machine",
+  "Micromobilità elettrica - Hoverboard":"E-micromobility – Hoverboard",
+  "Micromobilità elettrica - Monowheel":"E-micromobility – Monowheel",
+  "Micromobilità elettrica - Segway":"E-micromobility – Segway",
+  "Monopattino elettrico":"E-scooter","Motocarrozzetta":"Motorcycle with sidecar",
+  "Motociclo a solo":"Motorcycle (rider only)","Motociclo con passeggero":"Motorcycle with passenger",
+  "Motociclo di polizia":"Police motorcycle","Motrice":"Tractor unit",
+  "Quadriciclo":"Quadricycle","Quadriciclo leggero":"Light quadricycle","Rimorchio":"Trailer",
+  "Trattore agricolo":"Farm tractor","Trattore stradale":"Road tractor","Treno":"Train",
+  "Veicolo a braccia":"Hand-drawn vehicle","Veicolo a trazione animale":"Animal-drawn vehicle",
+  "Veicolo ignoto perchè FUGA":"Unknown vehicle (hit-and-run)","Veicolo speciale":"Special vehicle",
+  "Velocipede":"Bicycle","Vettura tranviaria":"Tram"
+};
+const tN = v => CAT_T[v] || v;
 
 let incidents = [];
 let filtered = [];
@@ -301,7 +354,7 @@ let charts = {};
 let sortKey = 'date', sortDir = 1;
 
 const $ = id => document.getElementById(id);
-const fmt = n => n.toLocaleString('it-IT');
+const fmt = n => n.toLocaleString('en-US');
 const pad = n => String(n).padStart(2,'0');
 
 function parseDate(v){
@@ -325,8 +378,8 @@ function initFromEmbedded(){
     mese: r[15],
     severity: r[10] > 0 ? 2 : (r[9] > 0 ? 1 : 0)
   }));
-  if (!incidents.length){ $('subtitle').textContent = 'Nessun dato disponibile'; return; }
-  $('subtitle').textContent = `${MESI[0]} – ${MESI[MESI.length-1]} · ${fmt(incidents.length)} incidenti`;
+  if (!incidents.length){ $('subtitle').textContent = 'No data available'; return; }
+  $('subtitle').textContent = `${MESI[0]} – ${MESI[MESI.length-1]} · ${fmt(incidents.length)} accidents`;
   buildFilterOptions();
   initMap();
   initKillerMap();
@@ -339,7 +392,7 @@ function buildFilterOptions(){
   const fill = (id, values) => {
     const sel = $(id);
     sel.length = 1;
-    [...values].sort((a,b)=>a.localeCompare(b,'it')).forEach(v => sel.add(new Option(v, v)));
+    [...values].sort((a,b)=>tN(a).localeCompare(tN(b),'en')).forEach(v => sel.add(new Option(tN(v), v)));
   };
   fill('fNatura', new Set(incidents.map(i=>i.natura)));
   fill('fMeteo', new Set(incidents.map(i=>i.meteo)));
@@ -375,7 +428,7 @@ function applyFilters(){
     (i.date ? (i.date.h >= hMin && i.date.h <= hMax) : (hMin === 0 && hMax === 23))
   );
   $('filterCount').textContent = filtered.length === incidents.length
-    ? '' : `${fmt(filtered.length)} di ${fmt(incidents.length)} incidenti`;
+    ? '' : `${fmt(filtered.length)} of ${fmt(incidents.length)} accidents`;
   updateKPIs(); updateMap(); updateHeatmap(); updateCharts(); updateTable();
 }
 
@@ -396,7 +449,7 @@ function animateKPI(id, target){
 }
 function updateKPIs(){
   animateKPI('kpiIncidenti', filtered.length);
-  document.getElementById('navChipNum').textContent = filtered.length.toLocaleString('it-IT');
+  document.getElementById('navChipNum').textContent = filtered.length.toLocaleString('en-US');
   animateKPI('kpiFeriti', filtered.reduce((s,i)=>s+i.feriti,0));
   animateKPI('kpiMorti', filtered.reduce((s,i)=>s+i.morti,0));
 }
@@ -437,7 +490,7 @@ function initKillerMap(){
     });
     clusterIncroci.addLayer(L.marker([lat, lon], {icon, morti, feriti}).bindPopup(
       `<strong>${s1}<br>&times; ${s2}</strong><br>` +
-      `Incidenti: <strong>${inc}</strong> &middot; Vittime: <strong style="color:${COLORS.red}">${morti}</strong> &middot; Feriti: <strong>${feriti}</strong>`
+      `Accidents: <strong>${inc}</strong> &middot; Deaths: <strong style="color:${COLORS.red}">${morti}</strong> &middot; Injured: <strong>${feriti}</strong>`
     ));
   });
   mapIncroci.addLayer(clusterIncroci);
@@ -518,14 +571,14 @@ function updateMap(){
     const via = i.strada2 ? `${i.strada} ∩ ${i.strada2}` : i.strada;
     m.bindPopup(
       `<div class="popup-title">${via}</div>` +
-      `${i.date ? i.date.label : 'Data non disponibile'}<br>` +
-      `${i.natura}<br>` +
-      `Feriti: <b>${i.feriti}</b> · Vittime: <b style="color:${COLORS.red}">${i.morti}</b>`
+      `${i.date ? i.date.label : 'Date not available'}<br>` +
+      `${tN(i.natura)}<br>` +
+      `Injured: <b>${i.feriti}</b> · Deaths: <b style="color:${COLORS.red}">${i.morti}</b>`
     );
     markers.push(m);
   }
   cluster.addLayers(markers);
-  $('noCoordNote').textContent = noCoord ? `${fmt(noCoord)} incidenti senza coordinate non mostrati` : '';
+  $('noCoordNote').textContent = noCoord ? `${fmt(noCoord)} accidents without coordinates not shown` : '';
 }
 
 // ---------- heatmap ----------
@@ -537,7 +590,7 @@ function updateHeatmap(){
 
   const holder = $('heatmap');
   holder.innerHTML = '';
-  if (!withDate){ holder.innerHTML = '<div class="empty-msg">Nessun dato disponibile</div>'; return; }
+  if (!withDate){ holder.innerHTML = '<div class="empty-msg">No data available</div>'; return; }
 
   const cw = 36, ch = 30, left = 46, top = 26;
   const W = left + 24*cw + 10, H = top + 7*ch + 30;
@@ -562,7 +615,7 @@ function updateHeatmap(){
         .attr('fill', color(grid[d][h]))
         .on('mousemove', ev => tip.style('display','block')
           .style('left',(ev.clientX+12)+'px').style('top',(ev.clientY-10)+'px')
-          .text(`${GIORNI[d]} h${pad(h)} · ${grid[d][h]} incidenti`))
+          .text(`${GIORNI[d]} h${pad(h)} · ${grid[d][h]} accidents`))
         .on('mouseleave', () => tip.style('display','none'));
     }
   }
@@ -622,7 +675,7 @@ function updateCharts(){
       ctx.fillStyle = '#1A1A1A';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(total.toLocaleString('it-IT'), cx, cy);
+      ctx.fillText(total.toLocaleString('en-US'), cx, cy);
       ctx.restore();
     }
   };
@@ -636,10 +689,10 @@ function updateCharts(){
   };
   const donut = (id, data) => {
     const legendId = id === 'chartNatura' ? 'legendNatura' : 'legendMeteo';
-    renderDonutLegend(legendId, data.map(d=>d[0]), PALETTE);
+    renderDonutLegend(legendId, data.map(d=>tN(d[0])), PALETTE);
     return makeOrUpdate(id, {
       type:'doughnut',
-      data:{ labels:data.map(d=>d[0]),
+      data:{ labels:data.map(d=>tN(d[0])),
         datasets:[{data:data.map(d=>d[1]), backgroundColor:PALETTE, borderColor:'#F7F5F0', borderWidth:2}] },
       options:{ responsive:true, maintainAspectRatio:false, cutout:'62%',
         plugins:{legend:{display:false}} }
@@ -648,7 +701,7 @@ function updateCharts(){
   const topN = (entries, n) => {
     if (entries.length <= n) return entries;
     const head = entries.slice(0,n), rest = entries.slice(n).reduce((s,e)=>s+e[1],0);
-    return [...head, ['Altro', rest]];
+    return [...head, ['Other', rest]];
   };
   donut('chartNatura', topN(countBy(filtered, i=>i.natura), 9));
   donut('chartMeteo', topN(countBy(filtered, i=>i.meteo), 9));
@@ -669,15 +722,15 @@ function updateCharts(){
 
 // ---------- tabella ----------
 const TABLE_COLS = [
-  {key:'date', label:'Data e ora', val:i=>i.date?i.date.label:'—', sort:i=>i.date?i.date.ts:0},
-  {key:'strada', label:'Strada', val:i=>i.strada2?`${i.strada} ∩ ${i.strada2}`:i.strada, sort:i=>i.strada},
-  {key:'natura', label:'Natura', val:i=>i.natura, sort:i=>i.natura},
-  {key:'meteo', label:'Meteo', val:i=>i.meteo, sort:i=>i.meteo},
-  {key:'luce', label:'Illuminazione', val:i=>i.luce, sort:i=>i.luce},
-  {key:'veicoli', label:'Veicoli', val:i=>[...i.veicoli].join(', ')||'—', sort:i=>i.veicoli.size},
-  {key:'feriti', label:'Feriti', val:i=>i.feriti, sort:i=>i.feriti, num:true},
-  {key:'morti', label:'Vittime', val:i=>i.morti, sort:i=>i.morti, num:true},
-  {key:'illesi', label:'Illesi', val:i=>i.illesi, sort:i=>i.illesi, num:true},
+  {key:'date', label:'Date & time', val:i=>i.date?i.date.label:'—', sort:i=>i.date?i.date.ts:0},
+  {key:'strada', label:'Road', val:i=>i.strada2?`${i.strada} ∩ ${i.strada2}`:i.strada, sort:i=>i.strada},
+  {key:'natura', label:'Type', val:i=>tN(i.natura), sort:i=>tN(i.natura)},
+  {key:'meteo', label:'Weather', val:i=>tN(i.meteo), sort:i=>tN(i.meteo)},
+  {key:'luce', label:'Lighting', val:i=>tN(i.luce), sort:i=>tN(i.luce)},
+  {key:'veicoli', label:'Vehicles', val:i=>[...i.veicoli].map(tN).join(', ')||'—', sort:i=>i.veicoli.size},
+  {key:'feriti', label:'Injured', val:i=>i.feriti, sort:i=>i.feriti, num:true},
+  {key:'morti', label:'Deaths', val:i=>i.morti, sort:i=>i.morti, num:true},
+  {key:'illesi', label:'Uninjured', val:i=>i.illesi, sort:i=>i.illesi, num:true},
 ];
 
 function buildTableHead(){
@@ -704,7 +757,7 @@ function updateTable(){
   const col = TABLE_COLS.find(c=>c.key===sortKey);
   const rows = [...filtered].sort((a,b)=>{
     const va = col.sort(a), vb = col.sort(b);
-    return (typeof va === 'string' ? va.localeCompare(vb,'it') : va - vb) * sortDir;
+    return (typeof va === 'string' ? va.localeCompare(vb,'en') : va - vb) * sortDir;
   });
   const tbody = document.querySelector('#dataTable tbody');
   tbody.innerHTML = '';
@@ -712,11 +765,11 @@ function updateTable(){
   const shown = rows.slice(0, MAX_ROWS);
   $('tableCount').textContent = rows.length
     ? (rows.length > MAX_ROWS
-        ? `${fmt(rows.length)} incidenti · mostrate le prime ${fmt(MAX_ROWS)} righe (scarica il CSV per tutte)`
-        : `${fmt(rows.length)} incidenti`)
+        ? `${fmt(rows.length)} accidents · showing the first ${fmt(MAX_ROWS)} rows (download the CSV for all)`
+        : `${fmt(rows.length)} accidents`)
     : '';
   if (!rows.length){
-    tbody.innerHTML = `<tr><td colspan="${TABLE_COLS.length}" class="empty-msg">Nessun dato disponibile</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="${TABLE_COLS.length}" class="empty-msg">No data available</td></tr>`;
     return;
   }
   const frag = document.createDocumentFragment();
@@ -740,7 +793,7 @@ function updateTable(){
 
 // ---------- export CSV ----------
 $('downloadCsv').addEventListener('click', () => {
-  if (!filtered.length){ alert('Nessun dato disponibile.'); return; }
+  if (!filtered.length){ alert('No data available.'); return; }
   const esc = v => { const s = String(v ?? ''); return /[";\n,]/.test(s) ? '"' + s.replace(/"/g,'""') + '"' : s; };
   const header = ['Protocollo','Mese','DataOra','Strada1','Strada2','NaturaIncidente','CondizioneAtmosferica',
     'Illuminazione','FondoStradale','Traffico','Veicoli','Feriti','Vittime','Illesi','Latitude','Longitude'];
