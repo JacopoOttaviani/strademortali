@@ -19,9 +19,17 @@
 body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.5;}
 h1,h2,h3,.kpi-num{font-family:'Barlow Condensed',sans-serif;}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
-header.site{border-bottom:1px solid var(--hair);padding:32px 0 24px;}
-header.site h1{font-size:42px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;line-height:1.1;}
-header.site p{color:var(--grey);margin-top:4px;}
+header.site{position:relative;overflow:hidden;background:var(--ink);border-bottom:1px solid var(--hair);padding:0;}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.hero-tint,.hero-shade{position:absolute;inset:0;pointer-events:none;}
+.hero-tint{z-index:1;}
+.hero-shade{z-index:2;background:linear-gradient(180deg,rgba(12,12,12,.32) 0%,rgba(12,12,12,.12) 45%,rgba(12,12,12,.58) 100%);}
+.hero-content{position:relative;z-index:3;padding-top:52px;}
+header.site h1{font-size:52px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;line-height:1.1;color:#fff;text-shadow:0 1px 14px rgba(0,0,0,.4);}
+header.site p{color:rgba(255,255,255,.78);margin-top:4px;text-shadow:0 1px 8px rgba(0,0,0,.4);}
+/* hero filter: rosso duotone */
+.hero--crimson .hero-video{filter:grayscale(1) contrast(1.08) brightness(.95);}
+.hero--crimson .hero-tint{background:var(--red);mix-blend-mode:color;opacity:.92;}
 /* KPI */
 .kpis{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--hair);}
 .kpi{padding:36px 0;text-align:center;}
@@ -30,6 +38,14 @@ header.site p{color:var(--grey);margin-top:4px;}
 .kpi-num.red{color:var(--red);}
 .kpi-num.blue{color:var(--blue);}
 .kpi-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-top:8px;}
+/* KPIs inside hero */
+.hero-content .kpis{border-bottom:none;margin-top:14px;}
+.hero-content .kpi{padding:26px 0 40px;}
+.hero-content .kpi+.kpi{border-left:1px solid rgba(255,255,255,.28);}
+.hero-content .kpi-num{color:#fff;text-shadow:0 2px 16px rgba(0,0,0,.45);}
+.hero-content .kpi-num.blue{color:#A9C6E8;}
+.hero-content .kpi-num.red{color:#FF7A64;}
+.hero-content .kpi-label{color:rgba(255,255,255,.68);}
 .btn{display:inline-block;background:var(--ink);color:#fff;border:none;padding:14px 32px;
   font-family:'IBM Plex Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:1px;
   text-transform:uppercase;cursor:pointer;}
@@ -160,6 +176,8 @@ html{scroll-behavior:smooth;}
 @media (max-width:560px){
   .kpis{grid-template-columns:1fr;}
   .kpi+.kpi{border-left:none;border-top:1px solid var(--hair);}
+  .hero-content .kpi+.kpi{border-left:none;border-top:1px solid rgba(255,255,255,.28);}
+  .hero-content .kpi{padding:18px 0 22px;}
   .filters-grid{grid-template-columns:1fr;}
   .chart-box{padding:16px;}
   .donut-wrap{flex-direction:column;height:auto;gap:12px;}
@@ -202,20 +220,28 @@ html{scroll-behavior:smooth;}
   <p>Un ringraziamento speciale a <a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>, la libreria open source di mappe utilizzata per questo progetto.</p>
 </aside>
 
-<header class="site">
-  <div class="wrap">
+<header class="site hero--crimson" id="hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/rome-loop.jpg" aria-hidden="true">
+    <source src="assets/rome-loop.mp4" type="video/mp4">
+  </video>
+  <div class="hero-tint"></div>
+  <div class="hero-shade"></div>
+  <div class="hero-content wrap">
     <h1>Incidenti stradali a Roma</h1>
     <p id="subtitle">Caricamento dati…</p>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-num blue" id="kpiIncidenti">0</div><div class="kpi-label">Incidenti totali</div></div>
+      <div class="kpi"><div class="kpi-num" id="kpiFeriti">0</div><div class="kpi-label">Feriti</div></div>
+      <div class="kpi"><div class="kpi-num red" id="kpiMorti">0</div><div class="kpi-label">Vittime</div></div>
+    </div>
   </div>
 </header>
 
-<div class="wrap">
-  <div class="kpis">
-    <div class="kpi"><div class="kpi-num blue" id="kpiIncidenti">0</div><div class="kpi-label">Incidenti totali</div></div>
-    <div class="kpi"><div class="kpi-num" id="kpiFeriti">0</div><div class="kpi-label">Feriti</div></div>
-    <div class="kpi"><div class="kpi-num red" id="kpiMorti">0</div><div class="kpi-label">Vittime</div></div>
-  </div>
-</div>
+<script>
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const v=document.querySelector('.hero-video'); v.autoplay=false; v.pause();
+}
+</script>
 
 <div class="wrap" id="filters">
   <div class="filters-grid">

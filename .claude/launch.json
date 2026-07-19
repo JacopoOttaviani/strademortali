@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "italia-fragile",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8742", "-d", "/Users/jacopo/Documents/Claude/Projects/Italia Fragile"],
+      "port": 8742
+    },
+    {
+      "name": "incidenti-stradali",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8743", "-d", "/Users/jacopo/Documents/Claude/Projects/Incidenti Stradali"],
+      "port": 8743
+    }
+  ]
+}
