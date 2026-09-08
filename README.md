@@ -33,7 +33,7 @@ python3 -m http.server 8000
 # then open http://localhost:8000
 ```
 
-External dependencies are loaded from CDNs: [Leaflet](https://leafletjs.com) with MarkerCluster, Chart.js, and Google Fonts.
+External dependencies are loaded from CDNs: [Leaflet](https://leafletjs.com) with MarkerCluster, Chart.js, and Google Fonts. The basemap uses the free [OpenStreetMap](https://www.openstreetmap.org/copyright) standard tiles, which need no API key.
 
 ## Data source
 
